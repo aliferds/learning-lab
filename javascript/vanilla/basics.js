@@ -71,3 +71,75 @@ later.toLocaleDateString(); // => "01/01/2010"
 later.toLocaleTimeString(); // => "05:10:30 PM"
 later.toISOString(); // => "2010-01-02T01:10:30.000Z"
 
+var p = "π"; // π é 1 caractere com posição de código de 16 bits 0x03c0
+var e = "e"; // e é 1 caractere com posição de código de 17 bits 0x1d452
+p.length; // => 1: p consiste em 1 elemento de 16 bits
+e.length; // => 2: a codificação UTF-16 de e são 2 valores de 16 bits: "\ud835\  udc52"
+
+'name="myform"';
+"Wouldn't you prefer O'Reilly's book?";
+"This string\nhas two lines";
+"π is the ratio of a circle's circumference to its diameter";
+
+"two\nlines"; // Uma string representando 2 linhas escritas em uma linha
+"one\n long\n line"; // Uma string de uma linha escrita em 3 linhas. Somente ECMAScript 5.
+
+'You\'re right, it can\'t be a quote';
+
+'\0'; // O caractere NUL (\u0000)
+'\b'; // Retrocesso (\u0008)
+'\t'; // Tabulação horizontal (\u0009)
+'\n'; // Nova linha (\u000A)
+'\v'; // Tabulação vertical (\u000B)
+'\f'; // Avanço de página (\u000C)
+'\r'; // Retorno de carro (\u000D)
+'\"'; // Aspas duplas (\u0022)
+"\'"; // Apóstrofo ou aspas simples (\u0027)
+'\\'; // Barra invertida (\u005C)
+'\xf8'; // XX O caractere Latin-1 especificado pelos dois dígitos hexadecimais XX
+'\uf8f8'; // XXXX O caractere Unicode especificado pelos quatro dígitos hexadecimais XXXX
+
+let msg = "Hello, " + "world"; // Produz a string "Hello, world"
+let name = "Developer";
+let greeting = "Welcome to my blog," + " " + name;
+
+msg.length
+
+var s = "hello, world" // Começa com um texto.
+s.charAt(0) // => "h": o primeiro caractere.
+s.charAt(s.length-1) // => "d": o último caractere.
+s.substring(1,4) // => "ell": o 2º, 3º e 4º caracteres.
+s.slice(1,4) // => "ell": a mesma coisa
+s.slice(-3) // => "rld": os últimos 3 caracteres
+s.indexOf("l") // => 2: posição da primeira letra l.
+s.lastIndexOf("l") // => 10: posição da última letra l.
+s.indexOf("l", 3) // => 3: posição do primeiro "l" em ou após 3
+s.split(", ") // => ["hello", "world"] divide em substrings
+s.replace("h", "H") // => "Hello, world": substitui todas as instâncias
+s.toUpperCase() // => "HELLO, WORLD"
+
+s = "hello, world";
+s[0] // => "h"
+s[s.length-1] // => "d"
+
+
+// REGEX
+
+let exp = /^HTML/ // Corresponde às letras H T M L no início de uma string
+let numbers = /[1-9][0-9]*/ // Corresponde a um dígito diferente de zero, seguido de qualquer
+ // número de dígitos
+let caseInsensitive = /\bjavascript\b/i // Corresponde a "javascript" como uma palavra, sem considerar letras
+// maiúsculas e minúsculas
+
+var text = "testing: 1, 2, 3"; // Exemplo de texto
+var pattern = /\d+/g // Corresponde a todas as instâncias de um ou mais
+ // dígitos
+pattern.test(text) // => verdadeiro: existe uma correspondência
+text.search(pattern) // => 9: posição da primeira correspondência
+text.match(pattern) // => ["1", "2", "3"]: array de todas as correspondências
+text.replace(pattern, "#"); // => "testing: #, #, #"
+text.split(/\D+/); // => ["","1","2","3"]: divide em não dígitos
+
+// Boolean
+false // 0, -0, "" (empty string), NaN, undefined, null
+true // any else value
